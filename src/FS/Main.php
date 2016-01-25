@@ -14,7 +14,7 @@ use pocketmine\level\sound\EndermanTeleportSound;
 use pocketmine\level\sound\PopSound;
 use pocketmine\level\sound\LaunchSound;
 use pocketmine\level\sound\ClickSound;
-use pocketmine\level\sound\BatSound;
+use pocketmine\level\sound\LaunchSound;
 use pocketmine\level\particle\FlameParticle;
 
 class Main extends PluginBase implements Listener {
@@ -35,11 +35,11 @@ class Main extends PluginBase implements Listener {
 	
         public function onSprint(PlayerToggleSprintEvent $event){
         $player = $event->getPlayer();
-        $fizz = new BatSound($player);
+        $fizz = new LaunchSound($player);
         $particle = new FlameParticle($player);
         $player->getLevel()->addSound($fizz);
         $player->getLevel()->addParticle($particle);
-     } //plays a batsound on sprint event
+     } //plays a launchsound on sprint event
 
         public function onSneak(PlayerToggleSneakEvent $event){
         $player = $event->getPlayer();
